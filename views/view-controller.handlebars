@@ -144,6 +144,12 @@
 
             <br>
 
+            <div onClick="addFolderToRundown();" class="addTemplateItem row_accent0">
+              <button type="button" class="addbtn bg_blue ripple" onClick="addFolderToRundown(-1);" style="float:right;"><i class="fas fa-folder"></i></button>
+              <span class="templateName">Add group</span><BR>
+              <span class="templateDesc">Add a group that other templates can be added to</span>
+            </div>
+
             <div class="addTemplateItem row_accent0">
               <button type="button" class="addbtn bg_blue ripple" onClick="addAllTemplatesToRundown();" style="float:right;">{{lang 'general.all'}}</button>
               <span class="templateName">{{lang 'pagetitle.pickAllTemplates'}}</span><BR>

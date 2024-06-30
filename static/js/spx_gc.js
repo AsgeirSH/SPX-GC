@@ -246,7 +246,16 @@ function tip(msg) {
 
 
 
-
+function addFolderToRundown() {
+  console.log("Adding new folder to rundown");
+  data={};
+  data.command       = "addFolderToRundown";
+  data.foldername    = document.getElementById('foldername').value; // Folder to save rundown in
+  data.listname      = document.getElementById('filebasename').value; 
+  data.datafile      = document.getElementById('datafile').value;
+  data.templateindex = -1;
+  post('', data, 'post');
+}
 
 
 function addSelectedTemplate(idx) {
@@ -1912,7 +1921,7 @@ function updateFormIndexes() {
         IndexList.push(item.getAttribute('data-spx-epoch'));
         item.querySelector('form').name = "templates[" + index + "]";
     });
-    // console.log('New form list sort order before saving to file', IndexList);
+    console.log('New form list sort order before saving to file', IndexList);
     return IndexList
 }
 

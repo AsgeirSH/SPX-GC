@@ -1078,7 +1078,7 @@ router.post('/gc/:foldername/:filename/', spxAuth.CheckLogin, async (req, res) =
         }
         rundownDataJSONobj.templates.push(TemplateModel);
         await spx.writeFile(data.datafile, rundownDataJSONobj);
-        res.redirect('/gc/' + data.foldername + '/' + data.listname);  
+        res.redirect('/gc/' + data.foldername + '/' + data.listname);
         return;
       } catch (error) {
           logger.error('addItemToRundown Error while saving file: ', error);
@@ -1112,6 +1112,16 @@ router.post('/gc/:foldername/:filename/', spxAuth.CheckLogin, async (req, res) =
       }; //file written
       break;
 
+
+    case 'addFolderToRundown': 
+      console.log("addFolderToRundown HTTP-call");
+      console.log(data);
+      // Send redirect
+      res.redirect('/gc/' + data.foldername + '/' + data.listname);
+      return;
+      
+    break;
+    case 'addItemToFolder': break;
     case 'duplicateRundownItem': 
       // CLONE TEMPLATE ITEM ON RUNDOWN (without reloading page) ///////////////////////////////////////////////////////////////////////////
 
