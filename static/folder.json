@@ -9,6 +9,7 @@
     "out": "manual",
     "dataformat": "json",
     "uicolor": "5",
+    "itemType": "folder",
     "DataFields": [
       {
         "field": "comment",

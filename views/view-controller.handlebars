@@ -634,7 +634,11 @@
                           </table> 
                       </div>
                     </div>
-
+                    {{#ifValue itemType 'folder' }}
+                    <div class="rundownFolder" style="min-height: 100px; border: 1px dashed black; padding: 0.4em;">
+                      <span>Drag templates here to add to group.</span>
+                    </div>
+                    {{/ifValue}}
                   </div>
                   </form>
                   </div>

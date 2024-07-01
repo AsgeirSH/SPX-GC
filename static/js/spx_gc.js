@@ -2261,11 +2261,26 @@ function spxInit() {
         handle: '.handle',
         animation: 150,
         disabled: false,
+        group: "rundown",
         // sortable.option("disabled", true); // TAI false
         onEnd: function (evt) {
             SaveNewSortOrder();
         },
     });
+    let folderList = itemList.querySelectorAll(".rundownFolder");
+    for(let i = 0; i < folderList.length; i++) {
+        new Sortable(folderList[i], {
+            handle: '.handle',
+            group: 'rundown',
+            animation: 150,
+            fallbackOnBody: true,
+            swapThreshold: 0.65,
+            onEnd: function (evt) {
+                SaveNewSortOrder();
+            },
+        });
+    }
+    console.log(folderList);
 
     focusRow(0);
     AppState("DEFAULT");
