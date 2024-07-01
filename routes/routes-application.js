@@ -1118,10 +1118,7 @@ router.post('/gc/:foldername/:filename/', spxAuth.CheckLogin, async (req, res) =
       console.log(data);
       try {      
         logger.verbose('Adding folder to rundown ' + data.listname );
-        folderJsonObj = await GetJsonData(path.join('static', 'folder.json'));
-        // TODO: Make a folder model instead
-        //let TemplateModel = profileDataJSONobj.templates[data.templateindex];
-        let TemplateModel = folderJsonObj;
+        let TemplateModel = await GetJsonData(path.join('static', 'folder.json'));
         TemplateModel.itemID = String(Date.now());  // Generate ID (epoch milliseconds) for this rundown item (from v. 0.9.8 onwards)
                                                     // This will be used to control UI (play, remove, sort, etc...)
         rundownDataJSONobj = await GetJsonData(data.datafile);
