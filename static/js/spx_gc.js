@@ -2267,6 +2267,7 @@ function spxInit() {
             SaveNewSortOrder();
         },
     });
+    // TODO: Ensure the folder does not hog the focus when clicking on a child element
     let folderList = itemList.querySelectorAll(".rundownFolder");
     for(let i = 0; i < folderList.length; i++) {
         new Sortable(folderList[i], {
@@ -2276,6 +2277,9 @@ function spxInit() {
             fallbackOnBody: true,
             swapThreshold: 0.65,
             onEnd: function (evt) {
+                // TODO: Set webplayout layer and other settings from the group to the dropped item.
+                // TODO: Update length of folder list in rundownJson
+                console.log(evt);
                 SaveNewSortOrder();
             },
         });
